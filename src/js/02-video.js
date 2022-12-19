@@ -8,9 +8,9 @@ player.on('play', function () {
   console.log('played the video!');
 });
 
-player.on('timeupdate', throttle(timeSave, 1000));
+player.on('timeupdate', throttle(onSaveTime, 1000));
 
-function timeSave() {
+function onSaveTime() {
   player.getCurrentTime().then(function (seconds) {
     localStorage.setItem('videoplayer-current-time', seconds);
   });
