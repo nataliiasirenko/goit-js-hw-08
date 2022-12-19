@@ -18,7 +18,4 @@ function timeSave() {
 
 player.setCurrentTime(localStorage.getItem('videoplayer-current-time') || 0);
 
-console.log(
-  // 'localStorage.getItem(videoplayer-current-time)',
-  localStorage.getItem('videoplayer-current-time')
-);
+console.log(localStorage.getItem('videoplayer-current-time'));
