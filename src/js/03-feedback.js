@@ -11,7 +11,7 @@ let formData = {};
 ref.form.addEventListener('input', throttle(onFormInput, 1000));
 ref.form.addEventListener('submit', onFormSubmit);
 
-loadForm();
+onFormLoad();
 
 function onFormInput(e) {
   formData[e.target.name] = e.target.value;
@@ -25,7 +25,7 @@ function onFormSubmit(event) {
   localStorage.removeItem(STORAGE_KEY);
 }
 
-function loadForm() {
+function onFormLoad() {
   const loadData = JSON.parse(localStorage.getItem(STORAGE_KEY));
   if (loadData) {
     ref.email.value = loadData.email;
