@@ -1,15 +1,13 @@
 import throttle from 'lodash.throttle';
 
-ref = {
-  form: document.querySelector('.feedback-form'),
-  email: document.querySelector('[name="email"]'),
-  message: document.querySelector('[name="message"]'),
-};
+const form = document.querySelector('.feedback-form');
+const email = document.querySelector('[name="email"]');
+const message = document.querySelector('[name="message"]');
 const STORAGE_KEY = 'feedback-form-state';
 let formData = {};
 
-ref.form.addEventListener('input', throttle(onFormInput, 1000));
-ref.form.addEventListener('submit', onFormSubmit);
+form.addEventListener('input', throttle(onFormInput, 1000));
+form.addEventListener('submit', onFormSubmit);
 
 onFormLoading();
 
@@ -28,7 +26,7 @@ function onFormSubmit(event) {
 function onFormLoading() {
   const loadData = JSON.parse(localStorage.getItem(STORAGE_KEY));
   if (loadData) {
-    ref.email.value = loadData.email;
-    ref.message.value = loadData.message;
+    email.value = loadData.email;
+    message.value = loadData.message;
   }
 }
