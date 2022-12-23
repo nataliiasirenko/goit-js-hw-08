@@ -12,7 +12,13 @@ form.addEventListener('submit', onFormSubmit);
 onFormLoading();
 
 function onFormInput(e) {
-  formData[e.target.name] = e.target.value;
+  // formData[e.target.name] = e.target.value;
+  const formData = {
+    email: form.elements.email.value,
+    message: form.elements.message.value,
+  };
+
+  console.log(formData);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 }
 
